@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!--The package element is an important container for organizing actions, 
+		results, and other component elements. -->
+	<package name="default" namespace="/" extends="struts-default">
+
+		<!-- This is just the jsp page that presents the initial form to collect 
+			the users name for building a customized greeting. A pass through action 
+			mapping, used to wire a direct JSP request through he Struts 2 system. This 
+			is recommended as a best practice for a variety of reasons including architectural 
+			consistency and a logical naming buffer between the request namespace and 
+			the actual jsp locations. -->
+		<action name="Name">
+			<result>/jsp/NameCollector.jsp</result>
+		</action>
+		
+		<!-- The HelloWorld action will create a custom greeting from the submitted 
+			form data. The HelloWorld action also declares a result to use for displaying 
+			the customized greeting, a jsp page in this case. -->
+		<action name="HelloWorld" class="com.strutstwoinaction.chaptertwo.HelloWorld">
+			<result name="SUCCESS">/jsp/HelloWorld.jsp</result>
+		</action>
+	</package>
+</struts>
